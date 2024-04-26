@@ -117,18 +117,43 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-         
-          
-           
-           <div className="flex gap-2">
-           <Link to={"/login"}>
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar tooltip hover:tooltip-open tooltip-left "
+              data-tip= "no name available"
+            >
+              <div className="w-10 rounded-full ">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60  text-lg"
+            >
+              <li>
+                <a></a>
+              </li>
+
+              <li className="text-[#418397]">
+                <button >Logout</button>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex gap-2">
+            <Link to={"/login"}>
               <a className="btn text-[#54A15D] text-base">Login</a>
             </Link>
             <Link to={"/register"}>
               <a className="btn text-white bg-[#54A15D] text-base">Register</a>
             </Link>
-           </div>
-          
+          </div>
         </div>
       </div>
     </div>
