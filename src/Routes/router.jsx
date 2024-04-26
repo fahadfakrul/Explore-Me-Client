@@ -8,11 +8,13 @@ import AddTouristsSpot from "../Pages/AddTouristsSpot";
 import MyList from "../Components/MyList";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import ErrorPage from "../Pages/Error-page";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: "/",
