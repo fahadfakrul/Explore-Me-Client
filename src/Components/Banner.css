@@ -1,0 +1,19 @@
+.slide{
+    height: 650px;
+    border-radius: 16px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+.slide-1{
+    background-image: url("../assets/banner0.jpg");
+}
+.slide-2{
+    background-image: url("../assets/banner1.jpg");
+}
+.slide-3{
+    background-image: url("../assets/banner2.jpg");
+}
+.slide-4{
+    background-image: url("../assets/banner3.jpg");
+}
