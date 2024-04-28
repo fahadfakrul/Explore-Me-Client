@@ -25,6 +25,7 @@ import ErrorPage from "../Pages/Error-page";
         {
             path: "/alltouristsspot",
             element:<AllTouristsSpot></AllTouristsSpot> ,
+            loader: () => fetch("http://localhost:5000/spots"),
             
           },
         {
