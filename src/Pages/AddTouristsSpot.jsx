@@ -1,25 +1,57 @@
+import Swal from "sweetalert2";
 const AddTouristsSpot = () => {
+  const handleAddTouristsSpot = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const tourists_spot_name = form.tourists_spot_name.value;
+    const country_name = form.country_name.value;
+    const location = form.location.value;
+    const short_description = form.short_description.value;
+    const avg_cost = form.avg_cost.value;
+    const seasonality = form.seasonality.value;
+    const travel_time = form.travel_time.value;
+    const visitors_per_year = form.visitors_per_year.value;
+    const photo = form.photo.value;
 
-     const handleAddTouristsSpot = event => {
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const tourists_spot_name = form.tourists_spot_name.value;
-        const country_name = form.country_name.value;
-        const location = form.location.value;
-        const short_description = form.short_description.value;
-        const avg_cost = form.avg_cost.value;
-        const seasonality = form.seasonality.value;
-        const travel_time = form.travel_time.value;
-        const visitors_per_year = form.visitors_per_year.value;
-        const photo = form.photo.value;
-       
-        const newSpot = {name,email,tourists_spot_name,country_name,location,short_description,avg_cost,seasonality,travel_time,visitors_per_year,photo};
-        console.log(newSpot);
-       
+    const newSpot = {
+      name,
+      email,
+      tourists_spot_name,
+      country_name,
+      location,
+      short_description,
+      avg_cost,
+      seasonality,
+      travel_time,
+      visitors_per_year,
+      photo,
+    };
 
-     }
+    fetch("http://localhost:5000/spots", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newSpot),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Data inserted successfully",
+            icon: "success",
+            confirmButtonText: "Okay",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
   return (
     <div className="mt-10 mb-20">
@@ -80,12 +112,22 @@ const AddTouristsSpot = () => {
                   <span className="label-text">Country Name</span>
                 </label>
                 <label className="input-group">
-                  <input
-                    type="text"
+                  <select
                     name="country_name"
-                    placeholder="Enter country name"
-                    className="input input-bordered w-full"
-                  />
+                    className="select select-bordered w-full"
+                  >
+                    <option value="" disabled selected>
+                      Choose a country
+                    </option>
+                    <option value="Jordan">Jordan</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="United Arab Emirates">
+                      United Arab Emirates
+                    </option>
+                    <option value="Iran">Iran</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Kuwait">Kuwait</option>
+                  </select>
                 </label>
               </div>
             </div>
