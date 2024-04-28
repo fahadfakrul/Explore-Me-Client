@@ -19,6 +19,7 @@ import ErrorPage from "../Pages/Error-page";
         {
             path: "/",
             element:<Home></Home> ,
+            loader: () => fetch("/tourguides.json"),
             
           },
         {

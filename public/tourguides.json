@@ -1,0 +1,29 @@
+{
+    "tour_guides": [
+      {
+        "id": "1",
+        "name": "Ali Hassan",
+        "image": "https://i.ibb.co/0qQv5hB/man2.jpg",
+        "contact": "+1234567890",
+        "desc": "Expert in ancient Middle Eastern history and culture.",
+        "email": "ali.hassan@example.com"
+      },
+      {
+        "id": "2",
+        "name": "Maya Al-Sayed",
+        "image": "https://i.ibb.co/TkbjxVZ/woman4.jpg",
+        "contact": "+1234567891",
+        "desc": "Specialist in Middle Eastern cuisine and traditions.",
+        "email": "maya.alsayed@example.com"
+      },
+      {
+        "id": "3",
+        "name": "Omar Khaled",
+        "image": "https://i.ibb.co/Z1TXyWF/man3.jpg",
+        "contact": "+1234567892",
+        "desc": "Passionate about desert landscapes and wildlife.",
+        "email": "omar.khaled@example.com"
+      }
+    ]
+  }
+  
