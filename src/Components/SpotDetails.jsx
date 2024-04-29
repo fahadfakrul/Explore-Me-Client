@@ -9,6 +9,9 @@ const SpotDetails = () => {
 
     return (
         <div>
+             <h1 className="mt-20 text-4xl font-bold leading-none text-center sm:text-5xl">
+             Explore the Wonders of Our Tourist Spots
+          </h1>
         <div className="p-5 mx-auto sm:p-10 md:p-16  dark:text-gray-800">
 	<div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
 		<img src={spot.photo} alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500 rounded-lg" />
