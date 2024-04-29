@@ -1,7 +1,34 @@
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import UseAuth from "../Hooks/UseAuth";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 const Register = () => {
+  const [showPassword, setShowPassword] =useState(false);
+ const {createUser} = UseAuth();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    createUser(email, password)
+      .then((result) => {
+        Swal.fire("Registration successful!");
+        navigate("/");
+        console.log(result);
+      })
+      .catch((error) => {
+        Swal.fire("Registration unsuccessful!");
+        console.error(error);
+      });
+  };
     return (
         <div>
       <div className="lg:p-0 min-h-screen">
@@ -16,7 +43,7 @@ const Register = () => {
             </p>
           </div>
           <div className="rounded-lg shrink-0 p-4 md:w-full  max-w-lg  lg:shadow-2xl bg-[#A0B585]">
-            <form  className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="text-lg font-merriweather font-bold">Name</span>
@@ -25,13 +52,13 @@ const Register = () => {
                   type="name"
                   placeholder="Enter your name"
                   className="input input-bordered  bg-[#eff1f0]"
-                //   {...register("name", {
-                //     required: "error message", // JS only: <p>error message</p> TS only support string
-                //   })}
+                  {...register("name", {
+                    required: "error message", // JS only: <p>error message</p> TS only support string
+                  })}
                 />
-                {/* {errors.name && (
+                {errors.name && (
                   <span className="text-red-500">This field is required</span>
-                )} */}
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -41,13 +68,13 @@ const Register = () => {
                   type="email"
                   placeholder="Enter your email"
                   className="input input-bordered  bg-[#eff1f0]"
-                //   {...register("email", {
-                //     required: "error message", // JS only: <p>error message</p> TS only support string
-                //   })}
+                  {...register("email", {
+                    required: "error message", // JS only: <p>error message</p> TS only support string
+                  })}
                 />
-                {/* {errors.email && (
+                {errors.email && (
                   <span className="text-red-500">This field is required</span>
-                )} */}
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -59,7 +86,7 @@ const Register = () => {
                   type="photoUrl"
                   placeholder="Enter your photo URL"
                   className="input input-bordered  bg-[#eff1f0]"
-                //   {...register("url")}
+                  {...register("url")}
                 />
               </div>
               <div className="form-control">
@@ -70,31 +97,30 @@ const Register = () => {
                 </label>
                <div className="relative ">
                <input
-                //   type={showPassword ? "text" : "password"}
-                //type= password
-                  placeholder="Enter your password"
+                  type={showPassword ? "text" : "password"}
+                   placeholder="Enter your password"
                   className="input w-full input-bordered  bg-[#eff1f0] "
-                //   {...register("password", {
-                //     minLength: {
-                //       value: 6, // Minimum length of the password
-                //       message: "Password must be at least 6 characters long",
-                //     },
-                //     pattern: {
-                //       value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
-                //       message:
-                //         "Password must contain at least one uppercase letter and one lowercase letter",
-                //     },
-                //   })}
+                  {...register("password", {
+                    minLength: {
+                      value: 6, // Minimum length of the password
+                      message: "Password must be at least 6 characters long",
+                    },
+                    pattern: {
+                      value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
+                      message:
+                        "Password must contain at least one uppercase letter and one lowercase letter",
+                    },
+                  })}
                 />
-                {/* <span className="absolute top-4 right-4" onClick={() => setShowPassword(!showPassword)}>
+                <span className="absolute top-4 right-4" onClick={() => setShowPassword(!showPassword)}>
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span> */}
+                </span>
                </div>
-                {/* {errors.password && (
+                {errors.password && (
                   <span className="text-red-500">
                     {errors.password.message}
                   </span>
-                )} */}
+                )}
                 {/* <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?

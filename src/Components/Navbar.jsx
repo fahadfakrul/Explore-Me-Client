@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../Hooks/UseAuth";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
+  const { user, logOut } = UseAuth();
 
   const handleToggle = (e) => {
     if (e.target.checked) {
@@ -13,11 +15,11 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
-    const localTheme = localStorage.getItem('theme');
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
 
-    document.querySelector('html').setAttribute('data-theme', localTheme);
-  }, [theme])
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
   return (
     <div>
       <div className="navbar bg-base-100 ">
@@ -134,7 +136,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <label className="swap swap-rotate mr-2">
+          <label className="swap swap-rotate mr-4">
             {/* this hidden checkbox controls the state */}
             <input
               type="checkbox"
@@ -160,42 +162,46 @@ const Navbar = () => {
               <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
             </svg>
           </label>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar tooltip hover:tooltip-open tooltip-left "
-              data-tip="no name available"
-            >
-              <div className="w-10 rounded-full ">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar tooltip hover:tooltip-open tooltip-left "
+                data-tip="no name available"
+              >
+                <div className="w-10 rounded-full ">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60  text-lg"
+              >
+                <li>
+                  <a></a>
+                </li>
+
+                <li className="text-[#418397]">
+                  <button onClick={logOut}>Logout</button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60  text-lg"
-            >
-              <li>
-                <a></a>
-              </li>
-
-              <li className="text-[#418397]">
-                <button>Logout</button>
-              </li>
-            </ul>
-          </div>
-
-          <div className="lg:flex lg:gap-2  ">
-            <Link to={"/login"}>
-              <a className="btn text-[#54A15D] text-base">Login</a>
-            </Link>
-            <Link to={"/register"}>
-              <a className="btn text-white bg-[#54A15D] text-base">Register</a>
-            </Link>
-          </div>
+          ) : (
+            <div className="lg:flex lg:gap-2  ">
+              <Link to={"/login"}>
+                <a className="btn text-[#54A15D] text-base">Login</a>
+              </Link>
+              <Link to={"/register"}>
+                <a className="btn text-white bg-[#54A15D] text-base">
+                  Register
+                </a>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
