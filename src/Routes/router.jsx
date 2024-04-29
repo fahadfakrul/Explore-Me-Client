@@ -50,7 +50,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
           },
           {
             path: '/spotdetails/:id',
-            element: <SpotDetails></SpotDetails>,
+            element: <PrivateRoute> <SpotDetails></SpotDetails></PrivateRoute>,
             loader: () => fetch("http://localhost:5000/spots"),
           },
       ],

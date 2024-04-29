@@ -182,8 +182,8 @@ const Navbar = () => {
                 className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60  text-lg"
               >
                 <li>
-                  <a></a>
-                </li>
+                <a >{user?.email || "email not found"}</a>
+              </li>
 
                 <li className="text-[#418397]">
                   <button onClick={logOut}>Logout</button>
