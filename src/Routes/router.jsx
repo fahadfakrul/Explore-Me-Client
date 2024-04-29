@@ -9,6 +9,7 @@ import MyList from "../Components/MyList";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/Error-page";
+import SpotDetails from "../Components/SpotDetails";
 
   const router = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ import ErrorPage from "../Pages/Error-page";
           {
             path: '/register',
             element: <Register></Register>,
+          },
+          {
+            path: '/spotdetails/:id',
+            element: <SpotDetails></SpotDetails>,
+            loader: () => fetch("http://localhost:5000/spots"),
           },
       ],
     },

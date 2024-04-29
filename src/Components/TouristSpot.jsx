@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const TouristSpot = ({spots}) => {
-    const {photo,tourists_spot_name,avg_cost,visitors_per_year,travel_time,seasonality }= spots;
+    const {photo,tourists_spot_name,avg_cost,visitors_per_year,travel_time,seasonality,_id }= spots;
     return (
         <div>
               <div className="card  bg-base-100 shadow-xl  transition  hover:scale-105">
@@ -21,7 +22,7 @@ const TouristSpot = ({spots}) => {
           <li className="font-semibold text-lg">Seasonality: <span className="font-normal text-lg">{seasonality}</span></li>
           </div>
           <div className="card-actions justify-end mt-4">
-            <button className="btn text-white bg-[#54A15D]">View Details</button>
+            <Link to={`/spotdetails/${_id}`} className="btn text-white bg-[#54A15D]">View Details</Link >
           </div>
         </div>
       </div>
