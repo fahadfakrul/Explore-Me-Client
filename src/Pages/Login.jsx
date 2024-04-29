@@ -1,7 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Components/SocialLogin";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import UseAuth from "../Hooks/UseAuth";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { signInUser } = UseAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire("Login successful!");
+        // navigate after login
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        Swal.fire("Login unsuccessful! Please try again.");
+        console.error(error);
+      });
+  };
+
   return (
     <div>
       <div className="  lg:p-0 min-h-screen ">
@@ -17,23 +49,25 @@ const Login = () => {
           </div>
           <div className="  rounded-lg shrink-0 p-4 md:w-full max-w-lg  lg:shadow-2xl bg-[#A0B585]">
             <form
-              
+              onSubmit={handleSubmit(onSubmit)}
               className="card-body
              "
             >
               <div className="form-control">
                 <label className="label">
-                  <span className="text-lg font-merriweather font-bold">Email</span>
+                  <span className="text-lg font-merriweather font-bold">
+                    Email
+                  </span>
                 </label>
                 <input
                   type="email"
                   placeholder="Enter your email"
                   className="input input-bordered  bg-[#eff1f0]"
-                //   {...register("email", { required: true })}
+                  {...register("email", { required: true })}
                 />
-                {/* {errors.email && (
+                {errors.email && (
                   <span className="text-red-500">This field is required</span>
-                )} */}
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -43,22 +77,21 @@ const Login = () => {
                 </label>
                 <div className="relative">
                   <input
-                    // type={showPassword ? "text" : "password"}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                     className="input input-bordered w-full bg-[#eff1f0] "
-                    // {...register("password", { required: true })}
+                    {...register("password", { required: true })}
                   />
                   <span
                     className="absolute top-4 right-4"
-                    // onClick={() => setShowPassword(!showPassword)}
+                    onClick={() => setShowPassword(!showPassword)}
                   >
-                    {/* {showPassword ? <FaEyeSlash /> : <FaEye />} */}
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
-                {/* {errors.password && (
+                {errors.password && (
                   <span className="text-red-500">This field is required</span>
-                )} */}
+                )}
                 {/* <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?

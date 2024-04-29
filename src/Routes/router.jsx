@@ -10,6 +10,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/Error-page";
 import SpotDetails from "../Components/SpotDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
   const router = createBrowserRouter([
     {
@@ -31,12 +32,12 @@ import SpotDetails from "../Components/SpotDetails";
           },
         {
             path: "/addtouristsspot",
-            element: <AddTouristsSpot></AddTouristsSpot>,
+            element:<PrivateRoute> <AddTouristsSpot></AddTouristsSpot></PrivateRoute>,
             
           },
         {
             path: "/mylist",
-            element: <MyList></MyList>,
+            element: <PrivateRoute><MyList></MyList></PrivateRoute>,
             
           },
           {

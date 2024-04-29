@@ -168,12 +168,12 @@ const Navbar = () => {
                 tabIndex={0}
                 role="button"
                 className="btn btn-ghost btn-circle avatar tooltip hover:tooltip-open tooltip-left "
-                data-tip="no name available"
+                data-tip={user?.displayName || "no name available "}
               >
                 <div className="w-10 rounded-full ">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
                   />
                 </div>
               </div>
