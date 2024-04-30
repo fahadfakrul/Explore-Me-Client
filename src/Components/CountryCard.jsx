@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 const CountryCard = ({ country }) => {
   const { country_name, image, description } = country;
   const handleProperty = () => {
@@ -29,5 +29,9 @@ const CountryCard = ({ country }) => {
     </Link>
   );
 };
+
+CountryCard.propTypes = {
+  country: PropTypes.object,
+}
 
 export default CountryCard;

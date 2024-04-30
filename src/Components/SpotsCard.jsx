@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 const SpotsCard = ({spot}) => {
-const { name,
-    email,
-    tourists_spot_name,
-    country_name,
-    location,
-    short_description,
+const { 
+     tourists_spot_name,
     avg_cost,
     seasonality,
     travel_time,
@@ -44,4 +40,7 @@ const { name,
   );
 };
 
+SpotsCard.propTypes = {
+  spot: PropTypes.object,
+}
 export default SpotsCard;
