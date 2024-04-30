@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/Error-page";
 import SpotDetails from "../Components/SpotDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateSpots from "../Pages/UpdateSpots";
+import CountrywiseSpot from "../Pages/CountrywiseSpot";
 
   const router = createBrowserRouter([
     {
@@ -57,6 +58,11 @@ import UpdateSpots from "../Pages/UpdateSpots";
           {
             path: '/updatespots/:id',
             element: <PrivateRoute> <UpdateSpots></UpdateSpots></PrivateRoute>,
+            loader: () => fetch("http://localhost:5000/spots"),
+          },
+          {
+            path: '/countrywisespot/:country_name',
+            element:  <CountrywiseSpot></CountrywiseSpot>,
             loader: () => fetch("http://localhost:5000/spots"),
           },
       ],
