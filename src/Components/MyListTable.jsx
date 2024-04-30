@@ -1,13 +1,13 @@
 
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import PropTypes from 'prop-types';
 const MyListTable = ({spot, fetchData}) => {
    
     const {name,tourists_spot_name,country_name,location,_id}=spot;
    
     const handleDelete = (id) =>{
-        fetch(`http://localhost:5000/delete/${id}`,{
+        fetch(`https://tourism-assignment-server.vercel.app/delete/${id}`,{
             method:"DELETE",
         })
          .then(res => res.json())
@@ -49,4 +49,9 @@ const MyListTable = ({spot, fetchData}) => {
     );
 };
 
+MyListTable.propTypes = {
+  spot: PropTypes.object,
+  fetchData: PropTypes.func,
+
+}
 export default MyListTable;

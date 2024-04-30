@@ -8,7 +8,7 @@ const TouristsSpots = () => {
     
 
     useEffect(() => {
-       fetch("http://localhost:5000/spots")
+       fetch("https://tourism-assignment-server.vercel.app/spots")
        .then((res) => res.json())
        .then((data) => setSpots(data))
     },[])

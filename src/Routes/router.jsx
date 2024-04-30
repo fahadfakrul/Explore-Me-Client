@@ -29,7 +29,7 @@ import CountrywiseSpot from "../Pages/CountrywiseSpot";
         {
             path: "/alltouristsspot",
             element:<AllTouristsSpot></AllTouristsSpot> ,
-            loader: () => fetch("http://localhost:5000/spots"),
+            loader: () => fetch("https://tourism-assignment-server.vercel.app/spots"),
             
           },
         {
@@ -53,17 +53,17 @@ import CountrywiseSpot from "../Pages/CountrywiseSpot";
           {
             path: '/spotdetails/:id',
             element: <PrivateRoute> <SpotDetails></SpotDetails></PrivateRoute>,
-            loader: () => fetch("http://localhost:5000/spots"),
+            loader: () => fetch("https://tourism-assignment-server.vercel.app/spots"),
           },
           {
             path: '/updatespots/:id',
             element: <PrivateRoute> <UpdateSpots></UpdateSpots></PrivateRoute>,
-            loader: () => fetch("http://localhost:5000/spots"),
+            loader: () => fetch("https://tourism-assignment-server.vercel.app/spots"),
           },
           {
             path: '/countrywisespot/:country_name',
             element:  <CountrywiseSpot></CountrywiseSpot>,
-            loader: () => fetch("http://localhost:5000/spots"),
+            loader: () => fetch("https://tourism-assignment-server.vercel.app/spots"),
           },
       ],
     },

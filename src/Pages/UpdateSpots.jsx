@@ -31,7 +31,7 @@ const UpdateSpots = () => {
           photo,
         };
     
-        fetch(`http://localhost:5000/updatespots/${id}`, {
+        fetch(`https://tourism-assignment-server.vercel.app/updatespots/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

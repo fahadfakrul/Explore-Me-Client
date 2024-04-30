@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 
 const TouristSpot = ({spots}) => {
     const {photo,tourists_spot_name,avg_cost,visitors_per_year,travel_time,seasonality,_id }= spots;
@@ -33,4 +33,9 @@ const TouristSpot = ({spots}) => {
     );
 };
 
+TouristSpot.propTypes = {
+  spots: PropTypes.object,
+ 
+
+}
 export default TouristSpot;

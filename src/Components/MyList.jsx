@@ -7,7 +7,7 @@ const MyList = () => {
     const {user} = UseAuth();
     const [spots, setSpots] = useState([]);
     const fetchData = () => {
-        fetch(`http://localhost:5000/mySpots/${user?.email}`)
+        fetch(`https://tourism-assignment-server.vercel.app/mySpots/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setSpots(data);

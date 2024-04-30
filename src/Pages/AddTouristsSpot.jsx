@@ -29,7 +29,7 @@ const AddTouristsSpot = () => {
       photo,
     };
 
-    fetch("http://localhost:5000/spots", {
+    fetch("https://tourism-assignment-server.vercel.app/spots", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
