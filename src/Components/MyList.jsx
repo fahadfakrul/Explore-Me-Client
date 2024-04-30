@@ -6,14 +6,17 @@ const MyList = () => {
    
     const {user} = UseAuth();
     const [spots, setSpots] = useState([]);
-    useEffect(() => {
+    const fetchData = () => {
         fetch(`http://localhost:5000/mySpots/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setSpots(data);
             console.log(data);
         })
-    },[user]);
+    }
+    useEffect(() => {
+       fetchData();
+    },[]);
   return (
     <div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
@@ -42,7 +45,7 @@ const MyList = () => {
             </thead>
             <tbody>
               {
-                spots?.map(spot => <MyListTable key={spot._id} spot={spot}></MyListTable>)
+                spots?.map(spot => <MyListTable key={spot._id} spot={spot}  fetchData={fetchData}></MyListTable>)
               }
 
             </tbody>

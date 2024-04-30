@@ -1,8 +1,28 @@
-import { Link } from "react-router-dom";
 
-const MyListTable = ({spot}) => {
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
+const MyListTable = ({spot, fetchData}) => {
    
     const {name,tourists_spot_name,country_name,location,_id}=spot;
+   
+    const handleDelete = (id) =>{
+        fetch(`http://localhost:5000/delete/${id}`,{
+            method:"DELETE",
+        })
+         .then(res => res.json())
+          .then(data => {
+            if(data.deletedCount > 0) {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Data deleted successfully",
+                    icon: "success",
+                    confirmButtonText: "Okay",
+                  });
+                fetchData();
+            }
+        })
+    }
     return (
        
             <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
@@ -22,7 +42,7 @@ const MyListTable = ({spot}) => {
                 <Link to={`/updatespots/${_id}`} className="btn  px-4 py-1 font-semibold rounded-md dark:bg-[#54A15D] dark:text-gray-50">Update</Link>
                 </td>
                 <td className="p-3 text-right">
-                    <button  className="btn  px-4 py-1 font-semibold rounded-md dark:bg-[#C12129] dark:text-gray-50">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn  px-4 py-1 font-semibold rounded-md dark:bg-[#C12129] dark:text-gray-50">Delete</button>
                 </td>
               </tr>
       
