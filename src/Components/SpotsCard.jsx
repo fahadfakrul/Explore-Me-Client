@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SpotsCard = ({spot}) => {
 const { name,
     email,
@@ -9,7 +11,11 @@ const { name,
     seasonality,
     travel_time,
     visitors_per_year,
-    photo,}= spot;
+    photo,_id}= spot;
+
+    const handleProperty = () => {
+      window.scrollTo(0, 0);
+    }
 
   return (
     <div>
@@ -30,7 +36,7 @@ const { name,
           <li className="font-semibold text-lg">Seasonality: <span className="font-normal text-lg">{seasonality}</span></li>
           </div>
           <div className="card-actions justify-end mt-4">
-            <button className="btn text-white bg-[#54A15D]">View Details</button>
+          <Link onClick={handleProperty} to={`/spotdetails/${_id}`} className="btn text-white bg-[#54A15D]">View Details</Link >
           </div>
         </div>
       </div>

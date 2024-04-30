@@ -11,6 +11,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/Error-page";
 import SpotDetails from "../Components/SpotDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateSpots from "../Pages/UpdateSpots";
 
   const router = createBrowserRouter([
     {
@@ -51,6 +52,11 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
           {
             path: '/spotdetails/:id',
             element: <PrivateRoute> <SpotDetails></SpotDetails></PrivateRoute>,
+            loader: () => fetch("http://localhost:5000/spots"),
+          },
+          {
+            path: '/updatespots/:id',
+            element: <PrivateRoute> <UpdateSpots></UpdateSpots></PrivateRoute>,
             loader: () => fetch("http://localhost:5000/spots"),
           },
       ],
