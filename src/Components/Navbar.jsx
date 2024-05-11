@@ -196,7 +196,7 @@ const Navbar = () => {
                 <a className="btn text-[#54A15D] text-base">Login</a>
               </Link>
               <Link to={"/register"}>
-                <a className="btn text-white bg-[#54A15D] text-base">
+                <a className="btn hidden lg:flex text-white bg-[#54A15D] text-base">
                   Register
                 </a>
               </Link>
