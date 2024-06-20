@@ -15,4 +15,4 @@ Interactive User Interface: The website offers a responsive and user-friendly de
 - React Awesome reveal
 
  # Server side git repo link:
- * Link: https://explore-me-tourism.web.app/
+ * Link: [https://explore-me-tourism.web.app/](https://github.com/fahadfakrul/Explore-Me-Server)
