@@ -13,3 +13,6 @@ Interactive User Interface: The website offers a responsive and user-friendly de
 # Extra packages used:
 - React-simple-typewriter
 - React Awesome reveal
+
+ # Server side git repo link:
+ * Link: https://explore-me-tourism.web.app/
