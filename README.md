@@ -1,4 +1,8 @@
 ﻿# B9A10-client-side-fahadfakrul
+ # About:
+ Explore ME is an innovative Middle East-based tourism website that allows travelers to discover destinations across the Middle East. The platform is designed to share information on tourism places the travelers so that users can find the best spot before traveling.
+
+The website features several pages: Home, All Tourist Spots, Add Tourist Spot, My List, and Login/Register. The Home page includes sections for countries, tourist spots, special offers, and tour guides. The All Tourist Spots page displays a collection of all the tourist spots available on the website. The Add Tourist Spot page allows users to add new tourist spots to the site. The My List page lets logged-in users view, update, or delete the tourist spots they have added. Lastly, the Login/Register page enables users to log in or create a new account.
  # Live site
  * Link: https://explore-me-tourism.web.app/
 
