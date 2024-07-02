@@ -13,11 +13,14 @@ Interactive User Interface: The website offers a responsive and user-friendly de
 * **Country-wise Filtering:** Users can filter tourist spots based on country names, allowing them to focus on specific regions and find attractions of interest.
 * **Secure Data Management:** Your website manages data securely and efficiently through asynchronous fetch requests, providing seamless integration with a backend API for adding, updating, and deleting tourist spots.
 * **Photo Galleries:** Each tourist spot includes photo galleries or photo URLs, providing users with visual previews of the attractions and enhancing the browsing experience.
+## Installation
 
+Follow these steps to install and run the project locally:
+1. Clone the repository
+2. cd your-repo-name
+3. npm install
+4. npm run dev
 
-# Extra packages used:
-- React-simple-typewriter
-- React Awesome reveal
 
  # Server side git repo link:
  * Link: [Server side code](https://github.com/fahadfakrul/Explore-Me-Server)
